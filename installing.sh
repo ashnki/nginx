@@ -30,6 +30,16 @@ else
     exit 1
 fi
 
+# 4. Clone the Git Repository into /srv
+TARGET_DIR="/srv/nginx-handbook-projects"
+
+if [ -d "$TARGET_DIR" ]; then
+    echo "Directory $TARGET_DIR already exists. Skipping clone."
+else
+    echo "Cloning repository into $TARGET_DIR..."
+    git clone https://github.com/fhsinchy/nginx-handbook-projects.git "$TARGET_DIR"
+fi
+
 echo "----------------------------------------"
 echo "Done! Nginx and Tree are installed."
 echo "Backup created: $BACKUP_CONF"
